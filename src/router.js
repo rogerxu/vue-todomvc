@@ -14,6 +14,11 @@ export default new Router({
       component: Home,
     },
     {
+      path: '/todo',
+      name: 'todo',
+      component: () => import('./views/Todo.vue'),
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
