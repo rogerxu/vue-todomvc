@@ -9,7 +9,9 @@ export default new Vuex.Store({
 
   },
   mutations: {
-
+    addTodo(state, todo) {
+      state.todos.push(todo);
+    },
   },
   actions: {
 

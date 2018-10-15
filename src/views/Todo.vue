@@ -9,6 +9,15 @@
         placeholder="What needs to be done?"
         @keyup.enter="addTodo">
     </header>
+
+    <!-- content -->
+    <section class="main">
+      <ul class="todo-list">
+        <li v-for="(todo, index) in todos"
+          :key="index"
+        >{{todo}}</li>
+      </ul>
+    </section>
   </section>
 </template>
 
@@ -20,7 +29,7 @@ export default {
   },
   computed: {
     todos() {
-      return [];
+      return this.$store.state.todos;
     },
   },
   methods: {
@@ -28,8 +37,7 @@ export default {
       const text = e.target.value;
 
       if (text.trim()) {
-        // this.$store.dispatch('addTodo', text);
-        console.log('add item', text);
+        this.$store.commit('addTodo', text);
       }
 
       // clear text box
