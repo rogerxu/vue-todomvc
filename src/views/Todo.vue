@@ -13,9 +13,11 @@
     <!-- content -->
     <section class="main">
       <ul class="todo-list">
-        <li v-for="(todo, index) in todos"
+        <todo-item
+          v-for="(todo, index) in todos"
           :key="index"
-        >{{todo}}</li>
+          :todo="todo"
+        />
       </ul>
     </section>
   </section>
@@ -23,9 +25,10 @@
 
 <script>
 import { mapState } from 'vuex';
+import TodoItem from '../components/TodoItem.vue';
 
 export default {
-  components: {},
+  components: { TodoItem },
   data() {
     return {};
   },

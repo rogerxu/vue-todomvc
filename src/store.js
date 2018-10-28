@@ -6,11 +6,13 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     todos: [],
-
   },
   mutations: {
-    addTodo(state, todo) {
-      state.todos.push(todo);
+    addTodo(state, text) {
+      state.todos.push({
+        text,
+        done: false,
+      });
     },
   },
   actions: {
