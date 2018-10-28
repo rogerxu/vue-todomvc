@@ -22,16 +22,16 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   components: {},
   data() {
     return {};
   },
-  computed: {
-    todos() {
-      return this.$store.state.todos;
-    },
-  },
+  computed: mapState([
+    'todos',
+  ]),
   methods: {
     addTodo(e) {
       const text = e.target.value;
