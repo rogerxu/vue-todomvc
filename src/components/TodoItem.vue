@@ -3,10 +3,11 @@
     <div class="view">
       <input type="checkbox" class="toggle"
         :checked="todo.done">
-      <label v-text="todo.text" @dblclick="editing = true"></label>
+      <label v-text="todo.text" @dblclick="beginEditTodo"></label>
       <button class="destroy" @click="removeTodo(todo)">X</button>
     </div>
     <input type="text" class="edit"
+      ref="edit"
       v-show="editing"
       :value="todo.text"
       @keyup.enter="doneEdit"
@@ -31,6 +32,15 @@ export default {
       'editTodo',
       'removeTodo',
     ]),
+    beginEditTodo() {
+      // show editing element
+      this.editing = true;
+
+      // focus editing element after rendered
+      this.$nextTick(() => {
+        this.$refs.edit.focus();
+      });
+    },
     doneEdit(e) {
       const value = e.target.value.trim();
       const { todo } = this;
