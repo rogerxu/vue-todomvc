@@ -40,7 +40,7 @@ export default {
       const text = e.target.value;
 
       if (text.trim()) {
-        this.$store.commit('addTodo', text);
+        this.$store.dispatch('addTodo', text);
       }
 
       // clear text box
