@@ -1,8 +1,9 @@
 <template>
-  <li class="todo">
+  <li class="todo" :class="{ completed: todo.done, editing: editing }">
     <div class="view">
       <input type="checkbox" class="toggle"
-        :checked="todo.done">
+        :checked="todo.done"
+        @change="toggleTodo(todo)">
       <label v-text="todo.text" @dblclick="beginEditTodo"></label>
       <button class="destroy" @click="removeTodo(todo)">X</button>
     </div>
@@ -30,6 +31,7 @@ export default {
   methods: {
     ...mapActions([
       'editTodo',
+      'toggleTodo',
       'removeTodo',
     ]),
     beginEditTodo() {

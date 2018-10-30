@@ -30,6 +30,9 @@ export default new Vuex.Store({
     editTodo({ commit }, { todo, value }) {
       commit('editTodo', { todo, text: value });
     },
+    toggleTodo({ commit }, todo) {
+      commit('editTodo', { todo, done: !todo.done });
+    },
     removeTodo({ commit }, todo) {
       commit('removeTodo', todo);
     },
