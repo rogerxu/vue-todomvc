@@ -5,7 +5,7 @@
         :checked="todo.done"
         @change="toggleTodo(todo)">
       <label v-text="todo.text" @dblclick="beginEditTodo"></label>
-      <button class="destroy" @click="removeTodo(todo)">X</button>
+      <button class="destroy" @click="removeTodo(todo)"></button>
     </div>
     <input type="text" class="edit"
       ref="edit"
@@ -16,6 +16,55 @@
       >
   </li>
 </template>
+
+<style lang="scss" scoped>
+li.todo {
+  font-size: 24px;
+  border-bottom: 1px solid #ededed;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &.completed {
+    label {
+      color: #d9d9d9;
+      text-decoration: line-through;
+    }
+  }
+
+  &.editing {
+    .view {
+      display: none;
+    }
+
+    .edit {
+      display: block;
+    }
+  }
+
+  .destroy {
+    display: none;
+    color: #cc9a9a;
+    transition: color 0.2s ease-out;
+
+    &::after {
+      content: '×';
+    }
+
+    &:hover {
+      color: #af5b5e;
+    }
+  }
+
+  &:hover {
+    .destroy {
+      display: inline;
+    }
+  }
+}
+</style>
+
 
 <script>
 import { mapActions } from 'vuex';

@@ -23,6 +23,49 @@
   </section>
 </template>
 
+<style lang="scss" scoped>
+.todoapp {
+  background: #fff;
+  margin: 130px 0 40px 0;
+  // position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+    0 25px 50px 0 rgba(0, 0, 0, 0.1);
+
+  input::input-placeholder {
+    font-style: italic;
+    color: #e6e6e6;
+  }
+
+  h1 {
+    // position: absolute;
+    // width: 100%;
+    font: {
+      size: 100px;
+      weight: 100;
+    }
+    // text-align: center;
+    text-rendering: optimizeLegibility;
+    color: rgba(175, 47, 47, 0.15);
+  }
+}
+
+.new-todo {
+  border: none;
+  background: rgba(0, 0, 0, 0.03);
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+}
+
+.main {
+  border-top: 1px solid #e6e6e6;
+}
+
+.todo-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+</style>
+
 <script>
 import { mapState } from 'vuex';
 import TodoItem from '../components/TodoItem.vue';
